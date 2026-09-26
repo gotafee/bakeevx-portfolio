@@ -51,7 +51,7 @@ Object.assign(projects[0], {
   solution: 'Собрал страницу вокруг услуг, работ и записи. Разделил предложения по задачам владельца автомобиля, добавил формы и подготовил Telegram-бота для отслеживания обращений. После запуска также подключил рекламу и аналитику.',
   gallery: [
     { title: 'Первое впечатление', caption: 'Реальный первый экран Rush Detailing с оффером и понятным расчётом.', variant: 'desktop', image: '/images/cases/rd-hero.jpg', imageAlt: 'Первый экран Rush Detailing на компьютере' },
-    { title: 'Сайт с телефона', caption: 'Мобильная версия с основным предложением и коротким путём к расчёту.', variant: 'mobile' },
+    { title: 'Сайт с телефона', caption: 'Мобильная версия с основным предложением и коротким путём к расчёту.', variant: 'mobile', image: '/images/cases/rd-m2.jpg', imageAlt: 'Мобильная версия сайта Rush Detailing' },
     { title: 'Короткая форма', caption: 'Квиз помогает выбрать тип автомобиля и услугу перед отправкой заявки.', variant: 'detail', image: '/images/cases/rd-quiz.jpg', imageAlt: 'Квиз расчёта услуги Rush Detailing' },
     { title: 'Заявки в Telegram', caption: 'Бот собирает обращения с сайта в одном удобном списке.', variant: 'desktop', video: '/videos/rdo-appl.mp4' }
   ]
