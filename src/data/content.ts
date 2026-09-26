@@ -43,14 +43,15 @@ Object.assign(projects[0], {
     { value: '1 877', label: 'просмотров' },
     { value: '1 597', label: 'визитов' },
     { value: '1 249', label: 'посетителей' },
-    { value: '40,95%', label: 'отказов' }
+    { value: '10', label: 'заявок за неделю' }
   ],
   evidenceImage: '/images/cases/rd-stat.jpg',
   evidenceAlt: 'Скриншот Яндекс Метрики Rush Detailing за 1–31 мая',
+  outcome: 'Посетитель может выбрать услугу, посмотреть примеры и оставить заявку с любого устройства. За одну неделю сайт принёс 10 заявок, которые фиксировал Telegram-бот.',
   solution: 'Собрал страницу вокруг услуг, работ и записи. Разделил предложения по задачам владельца автомобиля, добавил формы и подготовил Telegram-бота для отслеживания обращений. После запуска также подключил рекламу и аналитику.',
   gallery: [
     { title: 'Первое впечатление', caption: 'Реальный первый экран Rush Detailing с оффером и понятным расчётом.', variant: 'desktop', image: '/images/cases/rd-hero.jpg', imageAlt: 'Первый экран Rush Detailing на компьютере' },
-    { title: 'Сайт с телефона', caption: 'Мобильная версия с основным предложением и коротким путём к расчёту.', variant: 'mobile', image: '/images/cases/rd-mobile.jpg', imageAlt: 'Мобильная версия сайта Rush Detailing' },
+    { title: 'Сайт с телефона', caption: 'Мобильная версия с основным предложением и коротким путём к расчёту. В кадре оставлен адрес rushdetailing.ru, системные индикаторы обрезаны.', variant: 'mobile', image: '/images/cases/rd-mobile-cropped.jpg', imageAlt: 'Мобильная версия сайта Rush Detailing с адресом rushdetailing.ru' },
     { title: 'Короткая форма', caption: 'Квиз помогает выбрать тип автомобиля и услугу перед отправкой заявки.', variant: 'detail', image: '/images/cases/rd-quiz.jpg', imageAlt: 'Квиз расчёта услуги Rush Detailing' }
   ]
 });
