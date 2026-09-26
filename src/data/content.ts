@@ -5,7 +5,7 @@ export interface Project {
   role: string; mockBrand: string; mockTitle: string; mockSubtitle: string; image?: string;
   task: string; solution: string; steps: string[]; metrics: Metric[]; demo: boolean;
   coverImage?: string; imageAlt?: string; demoVisuals?: boolean; evidenceImage?: string; evidenceAlt?: string;
-  period?: string; outcome: string; gallery: { title: string; caption: string; variant: 'desktop' | 'mobile' | 'detail'; image?: string; imageAlt?: string }[];
+  period?: string; outcome: string; gallery: { title: string; caption: string; variant: 'desktop' | 'mobile' | 'detail'; image?: string; imageAlt?: string; video?: string }[];
 }
 export const projects: Project[] = [
   {slug:'detailing',number:'01',name:'Детейлинг-центр',category:'Автомобильный бизнес',summary:'Сайт, который ведёт от первого впечатления к записи.',role:'Дизайн / Разработка / Аналитика',mockBrand:'RUSH',mockTitle:'Внимание к каждой детали',mockSubtitle:'Детейлинг, который чувствуется.',image:'/images/porsche.webp',task:'Посетителю из рекламы нужно быстро понять, какие услуги есть в центре, увидеть работы и записаться. Задача сайта: сделать этот путь понятным, особенно с телефона.',solution:'Собрал страницу вокруг услуг, работ и записи. Разделил предложения по задачам владельца автомобиля, добавил формы и предусмотрел отслеживание обращений. После запуска также подключил рекламу и аналитику.',steps:['Выстроил путь от услуги к форме записи.','Вынес работы и преимущества центра на первый план.','Связал формы с уведомлениями о заявках.','Подготовил события для отслеживания обращений.'],metrics:[{value:'320',label:'посетителей'},{value:'8,4%',label:'конверсия в заявку'},{value:'27',label:'заявок'},{value:'640 ₽',label:'стоимость заявки'}],demo:true,period:'с 12 по 31 августа 2026',outcome:'Посетитель может выбрать услугу, посмотреть примеры и оставить заявку с любого устройства.',gallery:[{title:'Первое впечатление',caption:'Крупный визуал и понятное предложение на первом экране.',variant:'desktop'},{title:'Запись с телефона',caption:'Услуги и кнопка обращения всегда под рукой.',variant:'mobile'},{title:'От интереса к заявке',caption:'Короткая форма после знакомства с работами центра.',variant:'detail'}]},
@@ -51,7 +51,8 @@ Object.assign(projects[0], {
   solution: 'Собрал страницу вокруг услуг, работ и записи. Разделил предложения по задачам владельца автомобиля, добавил формы и подготовил Telegram-бота для отслеживания обращений. После запуска также подключил рекламу и аналитику.',
   gallery: [
     { title: 'Первое впечатление', caption: 'Реальный первый экран Rush Detailing с оффером и понятным расчётом.', variant: 'desktop', image: '/images/cases/rd-hero.jpg', imageAlt: 'Первый экран Rush Detailing на компьютере' },
-    { title: 'Сайт с телефона', caption: 'Мобильная версия с основным предложением и коротким путём к расчёту. В кадре оставлен адрес rushdetailing.ru, системные индикаторы обрезаны.', variant: 'mobile', image: '/images/cases/rd-mobile-cropped.jpg', imageAlt: 'Мобильная версия сайта Rush Detailing с адресом rushdetailing.ru' },
+    { title: 'Сайт с телефона', caption: 'Мобильная версия с основным предложением и коротким путём к расчёту.', variant: 'mobile', image: '/images/cases/rd-mobile-cropped.jpg', imageAlt: 'Мобильная версия сайта Rush Detailing с адресом rushdetailing.ru' },
+    { title: 'Заявки в Telegram', caption: 'Бот собирает обращения с сайта в одном удобном списке.', variant: 'detail', video: '/videos/rdo-appl.mp4' },
     { title: 'Короткая форма', caption: 'Квиз помогает выбрать тип автомобиля и услугу перед отправкой заявки.', variant: 'detail', image: '/images/cases/rd-quiz.jpg', imageAlt: 'Квиз расчёта услуги Rush Detailing' }
   ]
 });
