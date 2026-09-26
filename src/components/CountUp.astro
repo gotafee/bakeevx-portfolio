@@ -1,0 +1,38 @@
+---
+interface Props { value: number; arrow?: boolean }
+const { value, arrow = false } = Astro.props;
+---
+<span class="big-number"><span data-count-to={value} aria-hidden="true">{value}</span><span class="sr-only">{value}</span>{arrow && <span class="number-arrow" aria-hidden="true">↗</span>}</span>
+<script>
+ const counters = [...document.querySelectorAll<HTMLElement>('[data-count-to]')];
+ const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+ const frames = new Map<HTMLElement, number>();
+ const finish = (element: HTMLElement) => {
+  cancelAnimationFrame(frames.get(element) ?? 0);
+  frames.delete(element);
+  element.textContent = element.dataset.countTo ?? '0';
+ };
+ if (!motion.matches && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+   for (const entry of entries) {
+    if (!entry.isIntersecting) continue;
+    const element = entry.target as HTMLElement;
+    observer.unobserve(element);
+    const target = Number(element.dataset.countTo);
+    const started = performance.now();
+    const tick = (now: number) => {
+     if (motion.matches) { finish(element); return; }
+     const progress = Math.min((now - started) / 1400, 1);
+     element.textContent = String(Math.floor(target * (1 - Math.pow(1 - progress, 2))));
+     if (progress < 1) frames.set(element, requestAnimationFrame(tick));
+     else finish(element);
+    };
+    frames.set(element, requestAnimationFrame(tick));
+   }
+  }, { threshold: 0.65 });
+  counters.forEach(element => { element.textContent = '0'; observer.observe(element); });
+  motion.addEventListener('change', event => {
+   if (event.matches) { observer.disconnect(); counters.forEach(finish); }
+  });
+ }
+</script>
