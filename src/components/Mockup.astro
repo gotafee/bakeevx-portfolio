@@ -1,0 +1,16 @@
+---
+import type { Project } from '../data/content';
+interface Props { project: Project; variant?: 'desktop'|'mobile'|'detail'; eager?: boolean }
+const { project:p, variant='desktop', eager=false } = Astro.props;
+---
+<div class:list={['mockup', `mock-${p.slug}`, `mock-${variant}`]} role="img" aria-label={`Демонстрационный макет: ${p.name}`}>
+ <div class="mock-browser" aria-hidden="true"><span></span><span></span><span></span><small>{p.mockBrand.toLowerCase()} / website</small></div>
+ <div class="mock-page" aria-hidden="true">
+  <div class="mock-nav"><b>{p.mockBrand}</b><span>О проекте &nbsp; Услуги &nbsp; Контакты</span><i>↗</i></div>
+  {variant==='detail' ? <div class="mock-form"><span class="mock-kicker">СЛЕДУЮЩИЙ ШАГ</span><h3>{p.slug==='korean-school'?'Начнём с 안녕?':p.slug==='ai-workshop'?'Попробуем на практике?':'Обсудим ваш автомобиль?'}</h3><div class="fake-field">Ваше имя <span>↗</span></div><div class="fake-field">Телефон или Telegram</div><span class="mock-button">{p.slug==='korean-school'?'Записаться на занятие':'Обсудить детали'} ↗</span><small>Демонстрационный макет формы</small></div> : <>
+   <div class="mock-copy"><span class="mock-kicker">{p.mockSubtitle}</span><h3>{p.mockTitle}</h3><span class="mock-button">{p.slug==='korean-school'?'Начать учиться':p.slug==='ai-workshop'?'Хочу на воркшоп':'Узнать больше'} ↗</span></div>
+   {p.image ? <img class="mock-photo" src={p.image} alt="" width="1400" height="1000" loading={eager?'eager':'lazy'} decoding="async"/> : <div class="ai-orbit" aria-hidden="true"><span></span><span></span><span></span><b>ai</b></div>}
+   <div class="mock-bottom"><span>{p.slug==='korean-school'?'한 걸음씩 / шаг за шагом':'Всё начинается с деталей'}</span><span>01 / 04</span></div>
+  </>}
+ </div>
+</div>

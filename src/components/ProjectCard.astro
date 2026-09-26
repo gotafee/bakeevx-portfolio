@@ -1,0 +1,14 @@
+---
+import Mockup from './Mockup.astro';
+import Arrow from './Arrow.astro';
+import type { Project } from '../data/content';
+interface Props { project: Project }
+const {project:p}=Astro.props;
+---
+<article class="project-card" data-reveal>
+ <a class:list={['project-visual', `stage-${p.slug}`]} href={`/cases/${p.slug}/`} aria-label={`Смотреть кейс: ${p.name}`}>
+  <span class="project-index">({p.number})</span>{p.demoVisuals !== false && <span class="project-demo">Концепт-превью</span>}
+  {p.coverImage ? <img class="real-project-cover" src={p.coverImage} alt={p.imageAlt || p.name} width="1400" height="1000" loading="lazy"/> : <div class="project-window"><Mockup project={p}/></div>}<span class="project-open"><Arrow/></span>
+ </a>
+ <div class="project-info"><div><p class="eyebrow">{p.category}</p><h3><a href={`/cases/${p.slug}/`}>{p.name}</a></h3><p>{p.summary}</p></div><span class="role-tag">{p.role.split(' / ')[0]}</span></div>
+</article>

@@ -1,0 +1,8 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Contact from '../../components/Contact.astro';
+import Star from '../../components/Star.astro';
+import {projects} from '../../data/content';
+---
+<Layout title="Кейсы | bakeevx" description="Четыре проекта: детейлинг, оклейка автомобилей, школа корейского и AI Workshop. Задачи, решения и визуалы."><section class="container catalog-section"><div class="section-label">ПОРТФОЛИО / 04 ПРОЕКТА</div><div class="catalog-heading"><h1>Сделано<br/><span class="green">с вниманием.</span></h1><Star/></div><div class="catalog-intro"><p>Разные задачи, один подход:<br/>разобраться в бизнесе и сделать удобный сайт.</p><span>Дизайн / Разработка / UX</span></div><div class="projects-grid">{projects.map(project=><ProjectCard project={project}/>)}</div></section><Contact/></Layout>

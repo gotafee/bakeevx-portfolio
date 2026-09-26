@@ -1,0 +1,4 @@
+---
+interface Props { class?: string }
+---
+<svg class:list={['star', Astro.props.class]} viewBox="0 0 100 100" fill="none" aria-hidden="true">{Array.from({length:8},(_,i)=><path d="M50 3v94" stroke="currentColor" stroke-width="9" transform={`rotate(${i*22.5} 50 50)`}/>)}</svg>

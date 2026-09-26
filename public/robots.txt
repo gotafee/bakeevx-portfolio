@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bakeevx.harvincadag811.chatgpt.site/sitemap-index.xml

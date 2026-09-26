@@ -1,0 +1,26 @@
+---
+import '@fontsource-variable/manrope';
+import '@fontsource-variable/golos-text';
+import '../styles/global.css';
+import Arrow from '../components/Arrow.astro';
+import {contact} from '../data/content';
+interface Props { title?: string; description?: string; noindex?: boolean }
+const {title='bakeevx | Сайты для вашего бизнеса',description='Разрабатываю сайты для бизнеса: от структуры и дизайна до запуска. Кейсы, боты и интеграции. Обсудить проект: @bakeevx.',noindex=false}=Astro.props;
+const canonical=new URL(Astro.url.pathname,Astro.site);
+---
+<!doctype html><html lang="ru"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#fffffc"/><title>{title}</title><meta name="description" content={description}/><link rel="canonical" href={canonical}/><link rel="icon" type="image/svg+xml" href="/favicon.svg"/>{noindex&&<meta name="robots" content="noindex"/>}<meta property="og:type" content="website"/><meta property="og:locale" content="ru_RU"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:image" content={new URL('/og.png',Astro.site)}/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta name="twitter:card" content="summary_large_image"/></head>
+<body><a class="skip-link" href="#main">Перейти к содержимому</a>
+<header class="header"><div class="container header-inner"><a href="/" class="logo" aria-label="bakeevx, главная">bakeev<span>x</span><i></i></a><nav class="desktop-nav" aria-label="Основная навигация"><a href="/#services">Услуги</a><a href="/cases/">Кейсы <sup>04</sup></a><a href="/#faq">FAQ</a></nav><a class="header-contact" href={contact} target="_blank" rel="noopener noreferrer">Обсудить проект <Arrow/></a><button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню"><span></span><span></span></button></div><nav id="mobile-menu" class="mobile-menu" aria-label="Мобильная навигация"><a href="/#services">Услуги</a><a href="/cases/">Кейсы <sup>04</sup></a><a href="/#faq">FAQ</a><a href={contact} target="_blank" rel="noopener noreferrer">Написать в Telegram ↗</a></nav></header>
+<main id="main"><slot/></main>
+<footer class="footer"><div class="container footer-top"><a href="/" class="logo" aria-label="bakeevx, главная">bakeev<span>x</span><i></i></a><p>Сайты с вниманием к вашему делу.</p><a href={contact} target="_blank" rel="noopener noreferrer">Telegram <Arrow/></a></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} bakeevx</span><span>Дизайн. Разработка. Внимание к деталям.</span><a href="#main">Наверх ↑</a></div></footer>
+<script>
+ const toggle=document.querySelector<HTMLButtonElement>('.menu-toggle');
+ const menu=document.querySelector<HTMLElement>('#mobile-menu');
+ const closeMenu=()=>{toggle?.setAttribute('aria-expanded','false');toggle?.setAttribute('aria-label','Открыть меню');menu?.setAttribute('inert','');document.body.classList.remove('menu-open')};
+ closeMenu();
+ toggle?.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');menu?.toggleAttribute('inert',!open);document.body.classList.toggle('menu-open',open)});
+ menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+ document.addEventListener('keydown',e=>{if(toggle?.getAttribute('aria-expanded')!=='true')return;if(e.key==='Escape'){closeMenu();toggle.focus()}if(e.key==='Tab'){const links=menu?.querySelectorAll<HTMLAnchorElement>('a');const last=links?.[links.length-1];if(e.shiftKey&&document.activeElement===toggle){e.preventDefault();last?.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();toggle.focus()}}});
+ window.matchMedia('(min-width: 761px)').addEventListener('change',e=>{if(e.matches)closeMenu()});
+ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}),{threshold:.08});document.querySelectorAll<HTMLElement>('[data-reveal]').forEach(el=>{if(el.getBoundingClientRect().top>window.innerHeight){el.classList.add('will-reveal');observer.observe(el)}})}
+</script></body></html>

@@ -1,0 +1,2 @@
+import { defineConfig } from '@playwright/test';
+export default defineConfig({testDir:'./tests',timeout:60000,fullyParallel:false,workers:2,reporter:[['list'],['html',{open:'never'}]],use:{baseURL:process.env.SITE_URL || 'http://127.0.0.1:4323',trace:'retain-on-failure'},projects:[{name:'chromium',use:{browserName:'chromium'}},{name:'webkit',use:{browserName:'webkit'}}],webServer:process.env.SITE_URL?undefined:{command:'npm run build && npm run preview -- --port 4323',url:'http://127.0.0.1:4323',reuseExistingServer:true}});
