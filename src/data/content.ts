@@ -31,6 +31,30 @@ export const projects: Project[] = [
     ]
   }
 ];
+
+// Детейлинг: реальные материалы из media. Порядок галереи повторяет путь пользователя.
+Object.assign(projects[0], {
+  image: '/images/cases/rd-hero.jpg',
+  coverImage: '/images/cases/rd-hero.jpg',
+  imageAlt: 'Главный экран Rush Detailing',
+  demo: false,
+  period: '1–31 мая',
+  metrics: [
+    { value: '1 877', label: 'просмотров' },
+    { value: '1 597', label: 'визитов' },
+    { value: '1 249', label: 'посетителей' },
+    { value: '40,95%', label: 'отказов' }
+  ],
+  evidenceImage: '/images/cases/rd-stat.jpg',
+  evidenceAlt: 'Скриншот Яндекс Метрики Rush Detailing за 1–31 мая',
+  solution: 'Собрал страницу вокруг услуг, работ и записи. Разделил предложения по задачам владельца автомобиля, добавил формы и подготовил Telegram-бота для отслеживания обращений. После запуска также подключил рекламу и аналитику.',
+  gallery: [
+    { title: 'Первое впечатление', caption: 'Реальный первый экран Rush Detailing с оффером и понятным расчётом.', variant: 'desktop', image: '/images/cases/rd-hero.jpg', imageAlt: 'Первый экран Rush Detailing на компьютере' },
+    { title: 'Сайт с телефона', caption: 'Мобильная версия с основным предложением и коротким путём к расчёту.', variant: 'mobile', image: '/images/cases/rd-mobile.jpg', imageAlt: 'Мобильная версия сайта Rush Detailing' },
+    { title: 'Короткая форма', caption: 'Квиз помогает выбрать тип автомобиля и услугу перед отправкой заявки.', variant: 'detail', image: '/images/cases/rd-quiz.jpg', imageAlt: 'Квиз расчёта услуги Rush Detailing' }
+  ]
+});
+
 export const projectNoun = ({one:'проект',few:'проекта',many:'проектов',other:'проекта'} as Record<string,string>)[new Intl.PluralRules('ru').select(projects.length)];
 export const services = [
  ['Лендинги','01','Соберу страницу под конкретный продукт или услугу. Помогу с предложением, структурой и текстом, сделаю дизайн и запущу сайт.'],
