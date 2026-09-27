@@ -43,3 +43,5 @@ sup{color:var(--ink)}.mock-button{color:var(--ink);font-weight:600}.mock-korean-
 .gallery-detail .stage-detailing .real-gallery-image{width:87%;height:auto;max-height:88%;object-fit:contain;border-radius:5px;transform:rotate(3deg);box-shadow:0 20px 45px #0008}
 @media(max-width:760px){.header{height:76px;padding:10px 0}.header-inner{height:56px;width:calc(100% - 24px);padding-inline:16px;border-radius:18px}.header .logo{font-size:24px}.header .menu-toggle{width:36px;height:36px}.mobile-menu{top:76px}.menu-open .header-inner{background:var(--paper)}.case-cover.stage-bakeevx>.real-project-cover{width:92%;margin-top:0}.gallery-mobile .stage-bakeevx .real-gallery-image{border-width:4px;border-radius:17px}}
 @media(scripting:none) and (max-width:760px){.header{height:auto;position:relative}.mobile-menu{position:static;top:auto}}
+.project-visual.stage-detailing{background:color-mix(in srgb,var(--green) 20%,var(--paper));color:var(--ink)}
+.stage-detailing .project-image-window{top:14%}
