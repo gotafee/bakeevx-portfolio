@@ -10,7 +10,7 @@ const prev=projects[(index+projects.length-1)%projects.length];
 const next=projects[(index+1)%projects.length];
 ---
 <Layout title={`${p.name} | Кейс bakeevx`} description={p.summary}>
-<article><header class="container case-header"><a class="text-link back-link" href="/cases/">← Все кейсы</a><div class="case-meta"><span class="section-label">ПРОЕКТ {p.number} / {projects.length}</span><span>{p.category}</span></div><h1>{p.name}</h1><div class="case-intro"><p>{p.summary}</p><span>{p.role}</span></div></header>
+<article><header class="container case-header"><a class="text-link back-link" href="/cases/">← Все кейсы</a><div class="case-meta"><span class="section-label">ПРОЕКТ {p.number} / {projects.length}</span><span>{p.category}</span></div><h1>{p.name}</h1><div class="case-intro"><p>{p.summary}</p><div class="case-intro-side"><span>{p.role}</span>{p.liveUrl&&<a class="live-site-link" href={p.liveUrl} target="_blank" rel="noopener noreferrer">Увидеть своими глазами <Arrow/></a>}</div></div></header>
 <div class:list={['container','case-cover',`stage-${p.slug}`]}>{p.coverImage ? <img class="real-project-cover" src={p.coverImage} alt={p.imageAlt || p.name} width="1400" height="1000"/> : <div class="case-cover-window"><Mockup project={p} eager/></div>}</div>
 <section class="container case-text section" data-reveal><div class="section-label">01 / ЗАДАЧА</div><div><h2>С чего всё<br/><span class="muted">началось</span></h2><p>{p.task}</p></div></section>
 <section class="container case-solution section" data-reveal><div class="section-label">02 / ЧТО Я СДЕЛАЛ</div><div><h2>От задачи<br/><span class="muted">к решению</span></h2><p>{p.solution}</p><ol class="steps">{p.steps.map((step,i)=><li><span>0{i+1}</span>{step}</li>)}</ol></div></section>

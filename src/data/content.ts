@@ -4,7 +4,7 @@ export interface Project {
   slug: string; number: string; name: string; category: string; summary: string;
   role: string; mockBrand: string; mockTitle: string; mockSubtitle: string; image?: string;
   task: string; solution: string; steps: string[]; metrics: Metric[]; demo: boolean;
-  coverImage?: string; imageAlt?: string; demoVisuals?: boolean; evidenceImage?: string; evidenceAlt?: string;
+  coverImage?: string; imageAlt?: string; demoVisuals?: boolean; evidenceImage?: string; evidenceAlt?: string; liveUrl?: string;
   period?: string; outcome: string; gallery: { title: string; caption: string; variant: 'desktop' | 'mobile' | 'detail'; image?: string; imageAlt?: string; video?: string }[];
 }
 export const projects: Project[] = [
@@ -38,6 +38,7 @@ Object.assign(projects[0], {
   image: '/images/cases/rd-hero.jpg',
   coverImage: '/images/cases/rd-p3.jpg',
   imageAlt: 'Главный экран Rush Detailing',
+  liveUrl: 'https://rushdetailing.ru',
   demo: false,
   period: '1–31 мая',
   metrics: [
@@ -61,7 +62,12 @@ Object.assign(projects[0], {
 Object.assign(projects[1], {
   coverImage: '/images/cases/ro-p3.jpg',
   imageAlt: 'Превью сайта оклейки автомобилей',
+  liveUrl: 'https://rushokleyka.ru',
   demoVisuals: false
+});
+
+Object.assign(projects[2], {
+  liveUrl: 'https://akizkorean.ru'
 });
 
 export const projectNoun = ({one:'проект',few:'проекта',many:'проектов',other:'проекта'} as Record<string,string>)[new Intl.PluralRules('ru').select(projects.length)];
