@@ -35,7 +35,7 @@ export const projects: Project[] = [
 // Детейлинг: реальные материалы из media. Порядок галереи повторяет путь пользователя.
 Object.assign(projects[0], {
   image: '/images/cases/rd-hero.jpg',
-  coverImage: '/images/cases/rd-hero.jpg',
+  coverImage: '/images/cases/rd-p.jpg',
   imageAlt: 'Главный экран Rush Detailing',
   demo: false,
   period: '1–31 мая',
@@ -55,6 +55,12 @@ Object.assign(projects[0], {
     { title: 'Короткая форма', caption: 'Квиз помогает выбрать тип автомобиля и услугу перед отправкой заявки.', variant: 'detail', image: '/images/cases/rd-quiz.jpg', imageAlt: 'Квиз расчёта услуги Rush Detailing' },
     { title: 'Заявки в Telegram', caption: 'Бот собирает обращения с сайта в одном удобном списке.', variant: 'desktop', video: '/videos/rdo-appl.mp4' }
   ]
+});
+
+Object.assign(projects[1], {
+  coverImage: '/images/cases/ro-p.jpg',
+  imageAlt: 'Превью сайта оклейки автомобилей',
+  demoVisuals: false
 });
 
 export const projectNoun = ({one:'проект',few:'проекта',many:'проектов',other:'проекта'} as Record<string,string>)[new Intl.PluralRules('ru').select(projects.length)];
