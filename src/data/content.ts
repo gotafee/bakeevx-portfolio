@@ -4,7 +4,7 @@ export interface Project {
   slug: string; number: string; name: string; category: string; summary: string;
   role: string; mockBrand: string; mockTitle: string; mockSubtitle: string; image?: string;
   task: string; solution: string; steps: string[]; metrics: Metric[]; demo: boolean;
-  coverImage?: string; imageAlt?: string; demoVisuals?: boolean; evidenceImage?: string; evidenceAlt?: string; liveUrl?: string;
+  coverImage?: string; cardImage?: string; imageAlt?: string; demoVisuals?: boolean; evidenceImage?: string; evidenceAlt?: string; liveUrl?: string;
   period?: string; outcome: string; gallery: { title: string; caption: string; variant: 'desktop' | 'mobile' | 'detail'; image?: string; imageAlt?: string; video?: string }[];
 }
 export const projects: Project[] = [
@@ -36,7 +36,8 @@ export const projects: Project[] = [
 Object.assign(projects[0], {
   role: 'Сайт / Разработка / Аналитика',
   image: '/images/cases/rd-hero.jpg',
-  coverImage: '/images/cases/rd-p3.jpg',
+  coverImage: '/images/cases/rd-hero.jpg',
+  cardImage: '/images/cases/rd-p3.jpg',
   imageAlt: 'Главный экран Rush Detailing',
   liveUrl: 'https://rushdetailing.ru',
   demo: false,
@@ -60,10 +61,16 @@ Object.assign(projects[0], {
 });
 
 Object.assign(projects[1], {
-  coverImage: '/images/cases/ro-p3.jpg',
-  imageAlt: 'Превью сайта оклейки автомобилей',
+  coverImage: '/images/cases/ro-hero.jpg',
+  cardImage: '/images/cases/ro-p3.jpg',
+  imageAlt: 'Главный экран сайта оклейки автомобилей',
   liveUrl: 'https://rushokleyka.ru',
-  demoVisuals: false
+  demoVisuals: false,
+  gallery: [
+    { title: 'Первое впечатление', caption: 'Первый экран с услугой, предложением и быстрым переходом к расчёту.', variant: 'desktop', image: '/images/cases/ro-hero.jpg', imageAlt: 'Первый экран сайта Rush Оклейка' },
+    { title: 'Сайт с телефона', caption: 'Мобильная версия с услугами и понятным путём к обращению.', variant: 'mobile', image: '/images/cases/ro-mobile.jpg', imageAlt: 'Мобильная версия сайта Rush Оклейка' },
+    { title: 'Короткая форма', caption: 'Квиз помогает выбрать услугу и запросить расчёт.', variant: 'detail', image: '/images/cases/ro-quiz.jpg', imageAlt: 'Квиз сайта Rush Оклейка' }
+  ]
 });
 
 Object.assign(projects[2], {
