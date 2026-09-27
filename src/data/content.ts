@@ -36,7 +36,7 @@ export const projects: Project[] = [
 Object.assign(projects[0], {
   role: 'Сайт / Разработка / Аналитика',
   image: '/images/cases/rd-hero.jpg',
-  coverImage: '/images/cases/rd-p2.jpg',
+  coverImage: '/images/cases/rd-p3.jpg',
   imageAlt: 'Главный экран Rush Detailing',
   demo: false,
   period: '1–31 мая',
@@ -59,7 +59,7 @@ Object.assign(projects[0], {
 });
 
 Object.assign(projects[1], {
-  coverImage: '/images/cases/ro-p2.jpg',
+  coverImage: '/images/cases/ro-p3.jpg',
   imageAlt: 'Превью сайта оклейки автомобилей',
   demoVisuals: false
 });
