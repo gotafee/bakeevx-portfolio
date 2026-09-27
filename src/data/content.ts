@@ -34,6 +34,7 @@ export const projects: Project[] = [
 
 // Детейлинг: реальные материалы из media. Порядок галереи повторяет путь пользователя.
 Object.assign(projects[0], {
+  role: 'Сайт / Разработка / Аналитика',
   image: '/images/cases/rd-hero.jpg',
   coverImage: '/images/cases/rd-p.jpg',
   imageAlt: 'Главный экран Rush Detailing',
