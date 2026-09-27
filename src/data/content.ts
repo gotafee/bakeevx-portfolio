@@ -68,7 +68,7 @@ Object.assign(projects[1], {
   demoVisuals: false,
   gallery: [
     { title: 'Первое впечатление', caption: 'Первый экран с услугой, предложением и быстрым переходом к расчёту.', variant: 'desktop', image: '/images/cases/ro-hero.jpg', imageAlt: 'Первый экран сайта Rush Оклейка' },
-    { title: 'Сайт с телефона', caption: 'Мобильная версия с услугами и понятным путём к обращению.', variant: 'mobile', image: '/images/cases/ro-mobile.jpg?v=2', imageAlt: 'Мобильная версия сайта Rush Оклейка' },
+    { title: 'Сайт с телефона', caption: 'Мобильная версия с услугами и понятным путём к обращению.', variant: 'mobile', image: '/images/cases/ro-mobile-clean.jpg', imageAlt: 'Мобильная версия сайта Rush Оклейка' },
     { title: 'Короткая форма', caption: 'Квиз помогает выбрать услугу и запросить расчёт.', variant: 'detail', image: '/images/cases/ro-quiz.jpg', imageAlt: 'Квиз сайта Rush Оклейка' },
     { title: 'Заявки в Telegram', caption: 'Бот собирает обращения с сайта в одном удобном списке.', variant: 'desktop', video: '/videos/rdo-appl.mp4' }
   ]
