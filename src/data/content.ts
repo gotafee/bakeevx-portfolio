@@ -5,7 +5,7 @@ export interface Project {
   role: string; mockBrand: string; mockTitle: string; mockSubtitle: string; image?: string;
   task: string; solution: string; steps: string[]; metrics: Metric[]; demo: boolean;
   coverImage?: string; cardImage?: string; imageAlt?: string; demoVisuals?: boolean; evidenceImage?: string; evidenceAlt?: string; liveUrl?: string;
-  period?: string; outcome: string; gallery: { title: string; caption: string; variant: 'desktop' | 'mobile' | 'detail'; image?: string; imageAlt?: string; video?: string }[];
+  period?: string; hidden?: boolean; outcome: string; gallery: { title: string; caption: string; variant: 'desktop' | 'mobile' | 'detail'; image?: string; imageAlt?: string; video?: string }[];
 }
 export const projects: Project[] = [
   {slug:'detailing',number:'01',name:'Детейлинг-центр',category:'Автомобильный бизнес',summary:'Сайт, который ведёт от первого впечатления к записи.',role:'Дизайн / Разработка / Аналитика',mockBrand:'RUSH',mockTitle:'Внимание к каждой детали',mockSubtitle:'Детейлинг, который чувствуется.',image:'/images/porsche.webp',task:'Посетителю из рекламы нужно быстро понять, какие услуги есть в центре, увидеть работы и записаться. Задача сайта: сделать этот путь понятным, особенно с телефона.',solution:'Собрал страницу вокруг услуг, работ и записи. Разделил предложения по задачам владельца автомобиля, добавил формы и предусмотрел отслеживание обращений. После запуска также подключил рекламу и аналитику.',steps:['Выстроил путь от услуги к форме записи.','Вынес работы и преимущества центра на первый план.','Связал формы с уведомлениями о заявках.','Подготовил события для отслеживания обращений.'],metrics:[{value:'320',label:'посетителей'},{value:'8,4%',label:'конверсия в заявку'},{value:'27',label:'заявок'},{value:'640 ₽',label:'стоимость заявки'}],demo:true,period:'с 12 по 31 августа 2026',outcome:'Посетитель может выбрать услугу, посмотреть примеры и оставить заявку с любого устройства.',gallery:[{title:'Первое впечатление',caption:'Крупный визуал и понятное предложение на первом экране.',variant:'desktop'},{title:'Запись с телефона',caption:'Услуги и кнопка обращения всегда под рукой.',variant:'mobile'},{title:'От интереса к заявке',caption:'Короткая форма после знакомства с работами центра.',variant:'detail'}]},
@@ -78,7 +78,10 @@ Object.assign(projects[2], {
   liveUrl: 'https://akizkorean.ru'
 });
 
-export const projectNoun = ({one:'проект',few:'проекта',many:'проектов',other:'проекта'} as Record<string,string>)[new Intl.PluralRules('ru').select(projects.length)];
+projects[3].hidden = true;
+projects[4].number = '04';
+export const publishedProjects = projects.filter(project => !project.hidden);
+export const projectNoun = ({one:'проект',few:'проекта',many:'проектов',other:'проекта'} as Record<string,string>)[new Intl.PluralRules('ru').select(publishedProjects.length)];
 export const services = [
  ['Лендинги','01','Соберу страницу под конкретный продукт или услугу. Помогу с предложением, структурой и текстом, сделаю дизайн и запущу сайт.'],
  ['Корпоративные сайты','02','Расскажу о компании через её услуги, проекты и команду. Продумаю навигацию, чтобы посетитель быстро нашёл нужное.'],

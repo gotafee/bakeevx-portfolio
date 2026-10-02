@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Mockup from '../../components/Mockup.astro';
 import Arrow from '../../components/Arrow.astro';
 import Contact from '../../components/Contact.astro';
-import {projects} from '../../data/content';
+import {publishedProjects as projects} from '../../data/content';
 export function getStaticPaths(){return projects.map((project,index)=>({params:{slug:project.slug},props:{project,index}}))}
 const {project:p,index}=Astro.props;
 const prev=projects[(index+projects.length-1)%projects.length];

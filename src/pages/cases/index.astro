@@ -3,6 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Contact from '../../components/Contact.astro';
 import Star from '../../components/Star.astro';
-import {projects,projectNoun} from '../../data/content';
+import {publishedProjects as projects,projectNoun} from '../../data/content';
 ---
-<Layout title="Кейсы | bakeevx" description="Пять проектов: детейлинг, оклейка автомобилей, школа корейского, AI Workshop и личное портфолио bakeevx. Задачи, решения и визуалы."><section class="container catalog-section"><div class="section-label">ПОРТФОЛИО / {projects.length} {projectNoun.toUpperCase()}</div><div class="catalog-heading"><h1>Сделано<br/><span class="green">с вниманием.</span></h1><Star/></div><div class="catalog-intro"><p>Разные задачи, один подход:<br/>разобраться в бизнесе и сделать удобный сайт.</p><span>Дизайн / Разработка / UX</span></div><div class="projects-grid">{projects.map(project=><ProjectCard project={project}/>)}</div></section><Contact/></Layout>
+<Layout title="Кейсы | bakeevx" description="Четыре проекта: детейлинг, оклейка автомобилей, школа корейского и личное портфолио bakeevx. Задачи, решения и визуалы."><section class="container catalog-section"><div class="section-label">ПОРТФОЛИО / {projects.length} {projectNoun.toUpperCase()}</div><div class="catalog-heading"><h1>Сделано<br/><span class="green">с вниманием.</span></h1><Star/></div><div class="catalog-intro"><p>Разные задачи, один подход:<br/>разобраться в бизнесе и сделать удобный сайт.</p><span>Дизайн / Разработка / UX</span></div><div class="projects-grid">{projects.map(project=><ProjectCard project={project}/>)}</div></section><Contact/></Layout>
