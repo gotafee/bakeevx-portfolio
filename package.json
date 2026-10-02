@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev --host 127.0.0.1",
     "build": "astro build",
+    "build:github": "node scripts/build-github.mjs",
     "preview": "node scripts/serve.mjs",
     "check": "astro check",
     "test": "playwright test"
