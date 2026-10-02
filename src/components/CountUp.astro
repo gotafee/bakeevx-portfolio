@@ -1,8 +1,9 @@
 ---
 interface Props { value: number; arrow?: boolean }
 const { value, arrow = false } = Astro.props;
+import Arrow from './Arrow.astro';
 ---
-<span class="big-number"><span data-count-to={value}>{value}</span>{arrow && <span class="number-arrow" aria-hidden="true">↗</span>}</span>
+<span class="big-number"><span data-count-to={value}>{value}</span>{arrow && <Arrow class="number-arrow"/>}</span>
 <script>
  const counters = [...document.querySelectorAll<HTMLElement>('[data-count-to]')];
  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
